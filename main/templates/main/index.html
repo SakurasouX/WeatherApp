@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<form action="">
+    {% csrf_token %}
+    <input type="search" name="city">
+    <input type="submit" value="Искать">
+</form>
+
+{% endblock %}
