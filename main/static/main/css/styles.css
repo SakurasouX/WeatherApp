@@ -1,0 +1,37 @@
+*   {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+    margin-top: 200px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.main-weather-block {
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 50%;
+    padding: 10px;
+}
+
+.main-weather-time {
+    display: flex;
+}
+
+.form-city {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}

@@ -4,10 +4,30 @@
 
 {% block content %}
 
-<form action="">
+<form action="{% url 'home' %}" method="POST" class="form-city">
     {% csrf_token %}
-    <input type="search" name="city">
-    <input type="submit" value="Искать">
+    <div class="from-div">
+        <input type="search" name="user_city" value="{% if city_name %}{{ city_name }}{% endif %}" placeholder="Enter your city">
+        <input type="submit">
+    </div>
 </form>
+
+{% if city_name %}
+    <div class="main-weather-block">
+
+        <div class="city">
+            {{ city_name }}, {{ city_country }}
+        </div>
+
+        <div class="temp">
+            +{{ temp }}&#176;С
+        </div>
+
+        <div>
+            {{ time }}
+        </div>
+
+    </div>
+{% endif %}
 
 {% endblock %}
