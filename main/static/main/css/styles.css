@@ -12,15 +12,21 @@ body {
     margin: auto;
     margin-top: 200px;
     font-family: 'Courier New', Courier, monospace;
+    background-color: whitesmoke;
 }
 
 .main-weather-block {
-    border: 1px solid black;
+    border: 1px black;
+    border-radius: 30px;
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    box-shadow: 4px 0px 8px 0px rgba(34, 60, 80, 0.2);
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
     width: 50%;
-    padding: 10px;
+    padding: 20px;
+    background-color: white;
 }
 
 .main-weather-time {
@@ -34,4 +40,67 @@ body {
     width: 40%;
     margin: auto;
     padding: 10px;
+}
+
+
+/* Styles for city info */
+
+.city-info {
+    display: flex;
+    margin-top: 10px;
+}
+
+.city-name {
+    flex: 1;
+}
+
+.city-time {
+    flex: 1;
+    text-align: right;
+}
+
+.container-temp {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.temp {
+    font-size: 30px;
+}
+
+.weather {
+    font-weight: bold;
+}
+
+.container-temp-description {
+    margin-left: 20px;
+}
+
+
+/* Styles for another info */
+
+.container-weather {
+    display: flex;
+}
+
+.container-weather div {
+    display: flex;
+    flex: 1;
+}
+
+.container-weather-image {
+    flex: 1;
+    font-size: 30px;
+    height: 30px;
+}
+
+.container-weather-image img {
+    margin-left: 50px;
+}
+
+.container-weather-info {
+    flex: 2;
+    height: 30px;
+    line-height: 30px;
 }

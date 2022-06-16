@@ -15,16 +15,42 @@
 {% if city_name %}
     <div class="main-weather-block">
 
-        <div class="city">
-            {{ city_name }}, {{ city_country }}
+        <div class="city-info">
+            <div class="city-name">
+                {{ city_name }}, {{ city_country }}
+            </div>
+    
+            <div class="city-time">
+                Сейчас {{ time }}
+                <!-- <img src="../../static/main/image/morning.png" style="width: 40px; height: 40px;"> -->
+            </div>
         </div>
 
-        <div class="temp">
-            +{{ temp }}&#176;С
+        <div class="container-temp">
+            <div class="temp">+{{ temp }}&#176;С</div>
+            <div class="container-temp-description">
+                <div class="weather">{{ weather }}</div>
+                <div class="feels_like">Ощущается как +{{ feels_like }}&#176;С</div>
+            </div>
         </div>
 
-        <div>
-            {{ time }}
+        <div class="container-weather">
+            <div>
+                <div class="container-weather-image"><img src="../../static/main/image/wind.png"></div>
+                <div class="container-weather-info">{{ wind }}м/с</div>
+            </div>
+
+            <div>
+                <div class="container-weather-image"><img src="../../static/main/image/humidity.png"></div>
+                <div class="container-weather-info">{{ humidity }}%</div>
+            </div>
+
+            <div>
+                <div class="container-weather-image"><img src="../../static/main/image/pressure.png"></div>
+                <div class="container-weather-info">{{ pressure }}hPa</div>
+            </div>
+        </div>
+
         </div>
 
     </div>

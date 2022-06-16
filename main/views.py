@@ -38,19 +38,26 @@ def context_creator(request, response):
     city_country = city['country']
     sunrise = city['sunrise']
     sunset = city['sunset']
+
     city_timezone = city['timezone']
+    local_time = datetime.datetime.now()
+    time = datetime.timedelta(seconds=city_timezone - 10800) + local_time
+    current_time = datetime.datetime.strftime(time, '%H:%M')
 
     for x in range(1):
         temp_data = data_list[x]['main']
-        temp = temp_data['temp']
+        temp = f'{temp_data["temp"]:.0f}'
         feels_like = temp_data['feels_like']
-        weather = data_list[x]['weather']
+        weather = data_list[x]['weather'][0]['description'].title()
         clouds = data_list[x]['clouds']
-        wind = data_list[x]['wind']
+        wind = data_list[x]['wind']['speed']
+        humidity = temp_data['humidity']
+        pressure = temp_data['pressure']
 
     context = {
         'city_name': city_name,
         'city_country': city_country,
+        'time': current_time,
         'sunrise': sunrise,
         'sunset': sunset,
         'temp': temp,
@@ -58,7 +65,8 @@ def context_creator(request, response):
         'weather': weather,
         'clouds': clouds,
         'wind': wind,
-        'time': city_timezone,
+        'humidity': humidity,
+        'pressure': pressure,
     }
 
     return context
