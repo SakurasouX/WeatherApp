@@ -6,9 +6,18 @@
 
 <form action="{% url 'home' %}" method="POST" class="form-city">
     {% csrf_token %}
-    <div class="from-div">
-        <input type="search" name="user_city" value="{% if city_name %}{{ city_name }}{% endif %}" placeholder="Enter your city">
-        <input type="submit">
+    <div class="form-div">
+        <input class="user-city" type="search" name="user_city" value="{% if city_name %}{{ city_name }}{% endif %}" placeholder="Enter your city">
+
+        {% if times %}
+            <select name="user-time">
+                {% for key, value in times.items %}
+                    <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+        {% endif %}
+
+        <input class="user-submit" type="submit">
     </div>
 </form>
 
@@ -32,7 +41,10 @@
                 <div class="weather">{{ weather }}</div>
                 <div class="feels_like">Ощущается как +{{ feels_like }}&#176;С</div>
             </div>
+            <div class="clouds">Облачность {{ clouds }}%</div>
         </div>
+
+        <hr>
 
         <div class="container-weather">
             <div>
@@ -49,6 +61,25 @@
                 <div class="container-weather-image"><img src="../../static/main/image/pressure.png"></div>
                 <div class="container-weather-info">{{ pressure }}hPa</div>
             </div>
+
+        </div>
+
+        <hr>
+
+        <div class="day-length">
+            <div class="sunrise">
+                <div class="day-image"><img src="../../static/main/image/sunrise.png"></div>
+                <div class="day-info">Восход {{ sunrise }}</div>
+            </div>
+            <div class="sunset">
+                <div class="day-image"><img src="../../static/main/image/sunset.png"></div>
+                <div class="day-info">Закат {{ sunset }}</div>
+            </div>
+        </div>
+
+        <div class="day-length-full">
+            <div class="day-length-full-image"><img src="../../static/main/image/day-length.png"></div>
+            <div class="day-length-full-info">Продолжительность дня {{ day_length }}</div>
         </div>
 
         </div>
